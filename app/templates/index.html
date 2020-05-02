@@ -1,0 +1,20 @@
+{% extends 'base.html'%}
+
+{% block content %}
+<!-- Styles block -->
+   <link href="https://fonts.googleapis.com/css2?family=Gotu&display=swap" rel="stylesheet">
+
+   <link href="https://fonts.googleapis.com/css2?family=Croissant+One&display=swap" rel="stylesheet"> 
+
+
+
+{% block styles%}
+    {{ super() }}
+    <div class="container" style="font-family:'Gotu', sans-serif ;"></div>
+<h1 style="text-align: center; color: black;font-family:'Gotu', sans-serif ;">ART PITCHES</h1>
+</div>
+
+    <image src="{{url_for('static',filename='images/rt.jpg')}}"></image>
+{% endblock %}
+
+{%endblock%}
