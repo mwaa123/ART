@@ -4,10 +4,10 @@
 {% block styles%}
     {{ super() }}
     <link href="https://fonts.googleapis.com/css2?family=Gotu&display=swap" rel="stylesheet">   
-    <div class="container">
+    <div class="container" style="color: black;">
         <div class="row">
             <div class="col-md-6">
-    <image src="{{url_for('static',filename='images/photo.jpg')}}" style="width: 450px;height: 600px;border-image: round;"></image>
+    <image src="{{url_for('static',filename='images/photo.jpg')}}" style="width: 450px;height: 600px;border: 8px solid;"></image>
             </div>
                 <div class="col-md-6" style="font-family:'Gotu', sans-serif ;">
                     <h2>VISUAL ARTS</h2>
@@ -19,7 +19,7 @@
         </div><br><br>
         <div class="row" style="font-family:'Gotu', sans-serif ;">
             <div class="col-md-6">
-    <image src="{{url_for('static',filename='images/fas.jpg')}}" style="width: 450px;height: 600px;border-image: round;"></image>
+    <image src="{{url_for('static',filename='images/fas.jpg')}}" style="width: 450px;height: 600px;border: 8px solid;"></image>
             </div>
                 <div class="col-md-6"> 
                     <h2>APPLIED ARTS</h2>
@@ -31,10 +31,10 @@
                     </h4>
 
                 </div>
-        </div>
-        <div class="row">
+        </div><br><br>
+        <div class="row" style="font-family:'Gotu', sans-serif ;" >
         <div class="col-md-6">
-            <image src="{{url_for('static',filename='images/tr.jpg')}}" style="width: 450px;height: 600px;border-image: round;"></image>
+            <image src="{{url_for('static',filename='images/tr.jpg')}}" style="width: 450px;height: 600px;border: 8px solid;"></image>
                     </div>
                         <div class="col-md-6"> 
                             <h2>PERFORMING ARTS</h2>
