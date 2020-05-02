@@ -22,11 +22,11 @@ def about():
     return render_template('about.html',title=title)
 
 
-# @app.route('/applied.html')
-# def applied():
+@app.route('/applied.html')
+def applied():
 
-#     '''
-#     View root page function that returns the applied page and its data
-#     '''
-#     title = 'ART'
-#     return render_template('applied.html',title=title)
+    '''
+    View root page function that returns the applied page and its data
+    '''
+    title = 'ART'
+    return render_template('applied.html',title=title)
