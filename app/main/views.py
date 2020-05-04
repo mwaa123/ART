@@ -44,27 +44,27 @@ def category(id):
     title = f'{id}'
     return render_template('categories.html',title = title, category = category)
 
-# @main.route('/pitch/', methods = ['GET', 'POST'])
-# @login_required
-# def new_pitch():
+@main.route('/pitch/', methods = ['GET', 'POST'])
+@login_required
+def new_pitch():
 
-#     form = InForm()
+    form = InForm()
 
-#     if form.validate_on_submit():
-#         category = form.category.data
-#         pitch= form.pitch.data
-#         title=form.title.data
+    if form.validate_on_submit():
+        category = form.category.data
+        pitch= form.pitch.data
+        title=form.title.data
 
-#         # Updated pitchinstance
-#         new_pitch = Add(title=title,category= category, pitch=pitch,user_id=current_user.id)
+        # Updated pitchinstance
+        new_pitch = Add(title=title,category= category, pitch=pitch,user_id=current_user.id)
 
-#         title='New Pitch'
+        title='New Pitch'
 
-#         new_pitch.save_pitch()
+        new_pitch.save_pitch()
 
-#         return redirect(url_for('main.index'))
+        return redirect(url_for('main.index'))
 
-#     return render_template('pitch.html',pitch_entry= form)
+    return render_template('pitch.html',pitch_entry= form)
 
 
 @main.route('/user/<uname>')
