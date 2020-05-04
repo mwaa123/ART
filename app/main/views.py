@@ -44,57 +44,57 @@ def category(id):
     title = f'{id}'
     return render_template('categories.html',title = title, category = category)
 
-@main.route('/pitch/', methods = ['GET', 'POST'])
-@login_required
-def new_pitch():
-
-    form = InForm()
-
-    if form.validate_on_submit():
-        category = form.category.data
-        pitch= form.pitch.data
-        title=form.title.data
-
-        # Updated pitchinstance
-        new_pitch = Add(title=title,category= category, pitch=pitch,user_id=current_user.id)
-
-        title='New Pitch'
-
-        new_pitch.save_pitch()
-
-        return redirect(url_for('main.index'))
-
-    return render_template('pitch.html',pitch_entry= form)
-
-
-# @main.route('/user/<uname>')
-# def profile(uname):
-#     user = User.query.filter_by(username = uname).first()
-
-#     if user is None:
-#         abort(404)
-
-#     return render_template("profile/profile.html", user = user)
-
-
-# @main.route('/user/<uname>/update',methods = ['GET','POST'])
+# @main.route('/pitch/', methods = ['GET', 'POST'])
 # @login_required
-# def update_profile(uname):
-#     user = User.query.filter_by(username = uname).first()
-#     if user is None:
-#         abort(404)
+# def new_pitch():
 
-#     form = UpdateProfile()
+#     form = InForm()
 
 #     if form.validate_on_submit():
-#         user.bio = form.bio.data
+#         category = form.category.data
+#         pitch= form.pitch.data
+#         title=form.title.data
 
-#         db.session.add(user)
-#         db.session.commit()
+#         # Updated pitchinstance
+#         new_pitch = Add(title=title,category= category, pitch=pitch,user_id=current_user.id)
 
-#         return redirect(url_for('.profile',uname=user.author))
+#         title='New Pitch'
 
-#     return render_template('profile/update.html',form =form)
+#         new_pitch.save_pitch()
+
+#         return redirect(url_for('main.index'))
+
+#     return render_template('pitch.html',pitch_entry= form)
+
+
+@main.route('/user/<uname>')
+def profile(uname):
+    user = User.query.filter_by(username = uname).first()
+
+    if user is None:
+        abort(404)
+
+    return render_template("profile/profile.html", user = user)
+
+
+@main.route('/user/<uname>/update',methods = ['GET','POST'])
+@login_required
+def update_profile(uname):
+    user = User.query.filter_by(username = uname).first()
+    if user is None:
+        abort(404)
+
+    form = UpdateProfile()
+
+    if form.validate_on_submit():
+        user.bio = form.bio.data
+
+        db.session.add(user)
+        db.session.commit()
+
+        return redirect(url_for('.profile',uname=user.author))
+
+    return render_template('profile/update.html',form =form)
 
 # @main.route('/user/<uname>/update/pic',methods= ['POST'])
 # @login_required
