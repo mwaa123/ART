@@ -41,50 +41,50 @@ class User(UserMixin,db.Model):
 
 
      
-# class Add(db.Model):
-#     __tablename__ = 'info'
-#     id = db.Column(db.Integer, primary_key = True)
-#     title = db.Column(db.String(255))
-#     pitch = db.Column(db.String(255))
-#     category = db.Column(db.String(255))
-#     date = db.Column(db.String(250), default=datetime.utcnow)
-#     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
-#     comments = db.relationship('Comments', backref='title', lazy='dynamic')
+class Add(db.Model):
+    __tablename__ = 'info'
+    id = db.Column(db.Integer, primary_key = True)
+    title = db.Column(db.String(255))
+    pitch = db.Column(db.String(255))
+    category = db.Column(db.String(255))
+    date = db.Column(db.String(250), default=datetime.utcnow)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    comments = db.relationship('Comments', backref='title', lazy='dynamic')
 
 
-#     def save_pitch(self):
-#         db.session.add(self)
-#         db.session.commit()
+    def save_pitch(self):
+        db.session.add(self)
+        db.session.commit()
 
 
-#     @classmethod
-#     def get_info(cls, cate):
-#         pitch = Add.query.filter_by(category=cate).all()
-#         return pitch
-#     def __repr__(self):
-#         return f"Add ('{self.pitch}', '{self.date}')"
+    @classmethod
+    def get_info(cls, cate):
+        pitch = Add.query.filter_by(category=cate).all()
+        return pitch
+    def __repr__(self):
+        return f"Add ('{self.pitch}', '{self.date}')"
    
         
-# class Comments(db.Model):
-#     __tablename__ = 'comments'
-#     id = db.Column(db.Integer, primary_key = True)
-#     comment = db.Column(db.String(255))
-#     posted = db.Column(db.DateTime(250), default = datetime.utcnow)
-#     info_id = db.Column(db.Integer, db.ForeignKey('info.id'))
-#     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+class Comments(db.Model):
+    __tablename__ = 'comments'
+    id = db.Column(db.Integer, primary_key = True)
+    comment = db.Column(db.String(255))
+    posted = db.Column(db.DateTime(250), default = datetime.utcnow)
+    info_id = db.Column(db.Integer, db.ForeignKey('info.id'))
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
 
-#     def save_comment(self):
-#         db.session.add(self)
-#         db.session.commit()
+    def save_comment(self):
+        db.session.add(self)
+        db.session.commit()
 
 
-#     @classmethod
-#     def get_comments(cls, id):
-#         comments = Comments.query.filter_by(info_id=id ).all()
-#         return comments
+    @classmethod
+    def get_comments(cls, id):
+        comments = Comments.query.filter_by(info_id=id ).all()
+        return comments
 
-#     def __repr__(self):
+    def __repr__(self):
 
-#         return f"Comments('{self.comment}', '{self.posted}')"
+        return f"Comments('{self.comment}', '{self.posted}')"
 
 
