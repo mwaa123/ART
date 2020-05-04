@@ -96,46 +96,46 @@ def update_profile(uname):
 
     return render_template('profile/update.html',form =form)
 
-# @main.route('/user/<uname>/update/pic',methods= ['POST'])
-# @login_required
-# def update_pic(uname):
-#     user = User.query.filter_by(author = uname).first()
-#     if 'photo' in request.files:
-#         filename = photos.save(request.files['photo'])
-#         path = f'photos/{filename}'
-#         user.profile_pic_path = path
-#         db.session.commit()
-#     return redirect(url_for('main.profile',uname=uname))
+@main.route('/user/<uname>/update/pic',methods= ['POST'])
+@login_required
+def update_pic(uname):
+    user = User.query.filter_by(author = uname).first()
+    if 'photo' in request.files:
+        filename = photos.save(request.files['photo'])
+        path = f'photos/{filename}'
+        user.profile_pic_path = path
+        db.session.commit()
+    return redirect(url_for('main.profile',uname=uname))
 
-# @main.route('/comments/<id>')
-# @login_required
-# def comment(id):
-#     '''
-#     function to return the comments
-#     '''
-#     comm =Comments.get_comments(id)
-#     print(comm)
-#     title = 'comments'
-#     return render_template('comments.html',comment = comm,title = title)
+@main.route('/comments/<id>')
+@login_required
+def comment(id):
+    '''
+    function to return the comments
+    '''
+    comm =Comments.get_comments(id)
+    print(comm)
+    title = 'comments'
+    return render_template('comments.html',comment = comm,title = title)
 
-# @main.route('/new_comment/<int:info_id>', methods = ['GET', 'POST'])
-# @login_required
-# def new_comment(info_id):
-#     info = Add.query.filter_by(id = info_id).first()
-#     form = lamentform()
+@main.route('/new_comment/<int:info_id>', methods = ['GET', 'POST'])
+@login_required
+def new_comment(info_id):
+    info = Add.query.filter_by(id = info_id).first()
+    form = lamentform()
 
-#     if form.validate_on_submit():
-#         comment = form.comment.data
+    if form.validate_on_submit():
+        comment = form.comment.data
 
-#         new_comment = Comments(comment=comment,user_id=current_user.id, info_id=info_id)
-
-
-#         new_comment.save_comment()
+        new_comment = Comments(comment=comment,user_id=current_user.id, info_id=info_id)
 
 
-#         return redirect(url_for('main.index'))
-#     title='New Pitch'
-#     return render_template('new_comment.html',title=title,comment_form = form,info_id=info_id)
+        new_comment.save_comment()
+
+
+        return redirect(url_for('main.index'))
+    title='New Pitch'
+    return render_template('new_comment.html',title=title,comment_form = form,info_id=info_id)
 
 
 
