@@ -4,7 +4,7 @@ class Config:
     General configuration parent class
     '''
     SECRET_KEY = os.environ.get('SECRET_KEY')
-    # SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://ruth:ruthmugo2020@localhost/art'
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://ruth:ruthmugo2020@localhost/art'
     UPLOADED_PHOTOS_DEST ='app/static/images'
     #  email configurations
     MAIL_SERVER = 'smtp.googlemail.com'
