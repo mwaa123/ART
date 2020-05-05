@@ -1,9 +1,11 @@
 from flask import render_template,request,redirect,url_for,abort
 from flask_login import login_required,current_user
 from ..models import User, Comments,Add
+# UpVote, DownVote
 from . import main
 from .. import db,photos
 from .forms import InForm, UpdateProfile
+import markdown2  
 # Views
 @main.route('/')
 def index():
@@ -45,7 +47,7 @@ def category(id):
     return render_template('categories.html',title = title, category = category)
 
 @main.route('/pitch/', methods = ['GET', 'POST'])
-@login_required
+# @login_required
 def new_pitch():
 
     form = InForm()
@@ -139,6 +141,57 @@ def new_comment(info_id):
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# @main.route('/home/like/<int:id>', methods = ['GET','POST'])
+# @login_required
+# def like(id):
+#     get_pitches = UpVote.get_upvotes(id)
+#     valid_string = f'{current_user.id}:{id}'
+
+#     for get_pitch in get_pitches:
+#         to_str = f'{get_pitch}'
+#         print(valid_string+" "+to_str)
+#         if valid_string == to_str:
+#             return redirect(url_for('main.pitch',id=id))
+#         else:
+#             continue
+
+#     like_pitch = UpVote(user = current_user, pitching_id=id)
+#     like_pitch.save_vote()
+
+#     return redirect(url_for('main.pitch',id=id))
+
+# @main.route('/home/dislike/<int:id>', methods = ['GET','POST'])
+# @login_required
+# def dislike(id):
+#     get_pitches = DownVote.get_downvotes(id)
+#     valid_string = f'{current_user.id}:{id}'
+
+#     for get_pitch in get_pitches:
+#         to_str = f'{get_pitch}'
+#         print(valid_string+" "+to_str)
+#         if valid_string == to_str:
+#             return redirect(url_for('main.pitch',id=id))
+#         else:
+#             continue
+
+#     dislike_pitch = DownVote(user = current_user, pitching_id=id)
+#     dislike_pitch.save_vote()
+
+#     return redirect(url_for('main.pitch',id=id))
 
 
 

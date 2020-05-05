@@ -17,11 +17,11 @@ class User(UserMixin,db.Model):
     username = db.Column(db.String(255),index = True)
     email = db.Column(db.String(255),unique = True,index = True)
     password_hash = db.Column(db.String(255))
-    # role_id = db.Column(db.Integer,db.ForeignKey('roles.id'))
+    role_id = db.Column(db.Integer,db.ForeignKey('roles.id'))
     bio = db.Column(db.String(255))
     profile_pic_path = db.Column(db.String(255))
     pitch = db.relationship('Add', backref= 'username', lazy = 'dynamic')
-    comments = db.relationship('Comment',backref = 'user',lazy = "dynamic")
+    comments = db.relationship('Comments',backref = 'user',lazy = "dynamic")
     
     @property
     def password(self):
@@ -88,3 +88,45 @@ class Comments(db.Model):
         return f"Comments('{self.comment}', '{self.posted}')"
 
 
+   
+# class UpVote(db.Model):
+#     __tablename__ = 'upvotes'
+#     id = db.Column(db.Integer, primary_key = True)
+#     id_user = db.Column(db.Integer, db.ForeignKey('users.id'))
+#     pitching_id = db.Column(db.Integer)
+    
+#     def save_vote(self):
+#         db.session.add(self)
+#         db.session.commit()
+        
+#     @classmethod
+#     def get_votes(cls,id):
+#         upvote = Upvote.query.filter_by(pitching_id=id).all()
+#         return upvote   
+    
+       
+#     def __repr__(self):
+#         return f'{self.id_user}:{self.pitching_id}'
+    
+# class DownVote(db.Model):
+#     __tablename__ = 'downvotes'
+    
+#     id = db.Column(db.Integer, primary_key=True)
+#     id_user = db.Column(db.Integer,db.ForeignKey('users.id'))
+#     pitching_id = db.Column(db.Integer)
+    
+#     def save_vote(self):
+#         db.session.add(self)
+#         db.session.commit()
+    
+#     @classmethod
+#     def get_downvotes(cls,id):
+#         downvote = DownVote.query.filter_by(pitching_id=id).all()
+#         return downvote
+    
+        
+    
+    
+#     def __repr__(self):
+#         return f'{self.id_user}:{self.pitching_id}'
+    

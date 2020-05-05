@@ -10,11 +10,18 @@
 
 {% block styles%}
     {{ super() }}
-    <div class="container" style="font-family:'Gotu', sans-serif ;"></div>
-<h1 style="text-align: center; color: black;font-family:'Gotu', sans-serif ;">ART PITCHES</h1>
-</div>
+    <div class="container"style="font-family:'Gotu', sans-serif ;">
+    <div class="row">
+        <div class="col-md-6">
+<h1 style="text-align: center ; color: black;font-family:'Gotu', sans-serif ;float: right;">ART PITCHES</h1>
 
-    <image src="{{url_for('static',filename='images/rt.jpg')}}"></image>
+    <image style="float: left;" src="{{url_for('static',filename='images/rt.jpg')}}"></image>    
+        </div>
+        <div class="col-md-6">
+    <image style="float: right;" src="{{url_for('static',filename='images/rt.jpg')}}"></image>    
+        </div>
+    </div>
+    </div>
 {% endblock %}
 
 {%endblock%}
