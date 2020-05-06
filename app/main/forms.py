@@ -5,7 +5,7 @@ from wtforms.validators import Required
 class InForm(FlaskForm):
     pitch = TextAreaField('Tell it')
     title = StringField('Title')
-    category = SelectField(u'info category', choices=[('visual', 'visual'), ('applied', 'applied'), ('perform', 'perform')])
+    category = SelectField(u'info category', choices=[('visual', 'visual'), ('applied', 'applied'), ('perform', 'perform'),('general','general')])
     submit = SubmitField('Submit')
 
  
@@ -14,6 +14,6 @@ class lamentform(FlaskForm):
     submit = SubmitField('Post lamentations')
 
 class UpdateProfile(FlaskForm):
-    bio = TextAreaField('About you', validators=[Required()])
+    bio = TextAreaField('About you',validators=[Required()])
     submit = SubmitField('submit')
     

@@ -13,6 +13,10 @@
             <ul class="nav navbar-nav">
                 <li><a href="/about.html">About</a></li>
         </div>
+        <h3 style="text-align: center;color: blueviolet;">ART PITCHES</h3>
+        <div>
+            <image style="float: right;" src="{{url_for('static',filename='images/arthearty-logo.png')}}"></image>  
+        </div>
             <ul class="nav navbar-nav navbar-right">
                 {% if current_user.is_authenticated %}
                 <li><a href="{{url_for('main.profile',uname=current_user.username)}}">Profile</a></li>
