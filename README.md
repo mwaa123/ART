@@ -10,31 +10,29 @@ This is a python app created to display pitches and help other users signed in a
 
 ## Live link
 
+## Getting started
 
-
-##  Getting started
 * one must have  a computer running on either MacOS, Ubuntu  or windows operating system
 
 * Installed python3.6 the latest version
 
 ## Installation / Setup instruction
+
 * Open Terminal {Ctrl+Alt+T}
 
 * git clone "https://github.com/mwaa123/ART"
 
-* cd Quotes-app
+* cd art
 
 * code . or atom . based on the text editor you have.
 
-
 ## Requirements
+
 * One must be logged in or have signed up to be able to add a pitch
 
 * One has to have correct credentials for the email to be signed up.
 
 * One must put in the correct password and confirmed it to be able to be signed up
-
-
 
 ## A user will be able to:
 
@@ -46,7 +44,6 @@ This is a python app created to display pitches and help other users signed in a
 
 * Get a welcoming email message after their signup.
 
-
 ## Technologies Used
 
 * google fonts
@@ -55,13 +52,15 @@ This is a python app created to display pitches and help other users signed in a
 * Bootstrap
 
 ## Known Bugs
+
 * The sign in application has a problem.
 
-## Contact Information 
+## Contact Information
 
  [ruthwanjiramugo@gmail.com]
 
 ## License
+
 [LICENCE](/home/ruth/art/LICENCE.md)
 
 * Copyright (c) 2020 **Ruth Mugo**
